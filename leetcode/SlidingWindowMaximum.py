@@ -10,3 +10,4 @@ class Solution:
                 deq.popleft()
             if i >= k-1:
                 result.append(nums[deq[0]])
+        return result
