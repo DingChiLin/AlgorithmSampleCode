@@ -81,6 +81,8 @@ tree.delete(6)
 tree.delete(4)
 tree.print()
 
+
+print("=== random test ====")
 import random
 for i in range(1, 100):
     tree.insert(random.randint(1,100))
