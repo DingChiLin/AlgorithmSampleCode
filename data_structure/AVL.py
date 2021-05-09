@@ -5,6 +5,7 @@ class AVLTreeNode:
         self.right = None
         self.height = 0
 
+#  not allow duplicated value
 class AVLTree:
     def __init__(self):
         self.root = None
@@ -53,10 +54,13 @@ class AVLTree:
         if (not node):
             return AVLTreeNode(val)
         else:
-            if (val >= node.val):
+            if (val > node.val):
                 node.right = self._insert(node.right, val)
-            else:                
+            elif (val < node.val):                
                 node.left = self._insert(node.left, val)
+            else:
+                return node # not allow duplicated value
+
             self._update_height(node)
             node = self._balance(node)
             return node
@@ -137,7 +141,7 @@ inserts = []
 for i in range(1, 1000):
     n = random.randint(1,1000)
     inserts.append(n)
-inserts = list(set(inserts))
+# inserts = list(set(inserts))
 for n in inserts:
     tree.insert(n)
 
@@ -145,7 +149,7 @@ deletes = []
 for i in range(1, 800):
     n = random.randint(1,1000)
     deletes.append(n)
-deletes = list(set(deletes))
+# deletes = list(set(deletes))
 for n in deletes:
     tree.delete(n)
 
