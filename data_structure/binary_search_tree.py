@@ -68,6 +68,8 @@ class BSTree:
         self._print(self.root)
 
 tree = BSTree()
+
+print("=== insert test ===")
 tree.insert(4)
 tree.insert(2)
 tree.insert(6)
@@ -76,11 +78,12 @@ tree.insert(3)
 tree.insert(5)
 tree.insert(7)
 tree.print()
+
+print("=== delete test ===")
 tree.delete(1)
 tree.delete(6)
 tree.delete(4)
 tree.print()
-
 
 print("=== random test ====")
 import random

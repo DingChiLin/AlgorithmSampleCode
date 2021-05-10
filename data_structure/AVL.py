@@ -122,6 +122,8 @@ class AVLTree:
 
 
 tree = AVLTree()
+
+print("=== insert test ===")
 tree.insert(7)
 tree.insert(6)
 tree.insert(5)
@@ -129,10 +131,14 @@ tree.insert(4)
 tree.insert(3)
 tree.insert(2)
 tree.insert(1)
+tree.insert(3) # won't be inserted since existed
 tree.print()
+
+print("=== delete test ===")
 tree.delete(1)
 tree.delete(6)
 tree.delete(4)
+tree.insert(1)
 tree.print()
 
 print("=== random test ====")
