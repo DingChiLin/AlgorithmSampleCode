@@ -176,6 +176,7 @@ print("")
 
 print("===== BFS Iteration (By Queue) =====")
 BFS_iteration(root)
+print("")
 
 print("===== BFS Iteration with Level (By Queue) =====")
 BFS_iteration_with_level(root)
