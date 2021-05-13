@@ -151,6 +151,21 @@ def BFS_iteration(root):
     
     print(ans) # [4, 2, 6, 1, 3, 5, 7]
 
+def BFS_iteration_with_level(root):
+    queue = deque()
+    queue.append((root, 1))
+
+    ans = []
+    while queue:
+        node, level = queue.popleft()
+        ans.append((node.val, level))
+        if node.left:
+            queue.append((node.left, level + 1))
+        if node.right:
+            queue.append((node.right, level + 1))
+    
+    print(ans) # [(4, 1), (2, 2), (6, 2), (1, 3), (3, 3), (5, 3), (7, 3)]
+
 print("===== DFS Recursion =====")
 DFS_recursion(root)
 print("")
@@ -161,3 +176,6 @@ print("")
 
 print("===== BFS Iteration (By Queue) =====")
 BFS_iteration(root)
+
+print("===== BFS Iteration with Level (By Queue) =====")
+BFS_iteration_with_level(root)
