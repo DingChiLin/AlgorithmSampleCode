@@ -41,12 +41,21 @@ def DFS_recursion(root):
         post_order(node.right)
         print(node.val, end = " ")
 
+    def pre_order_with_depth(node, depth):
+        if not node:
+            return
+        print((node.val, depth), end = " ")
+        pre_order_with_depth(node.left, depth + 1)
+        pre_order_with_depth(node.right, depth + 1)
+
     print("Pre order:", end = " ")
     pre_order(root) # 4, 2, 1, 3, 6, 5, 7
     print("\nIn order:", end = " ")
     in_order(root) # 1, 2, 3, 4, 5, 6, 7
     print("\nPost order:", end = " ")
     post_order(root) # 1, 3, 2, 5, 7, 6, 4
+    print("\nPre order with depth:", end = " ")
+    pre_order_with_depth(root, 1) # (4, 1) (2, 2) (1, 3) (3, 3) (6, 2) (5, 3) (7, 3)
     print("")
 
 def DFS_iteration(root):
@@ -151,20 +160,41 @@ def BFS_iteration(root):
     
     print(ans) # [4, 2, 6, 1, 3, 5, 7]
 
-def BFS_iteration_with_level(root):
-    queue = deque()
-    queue.append((root, 1))
+def BFS_iteration_with_depth(root):
 
-    ans = []
-    while queue:
-        node, level = queue.popleft()
-        ans.append((node.val, level))
-        if node.left:
-            queue.append((node.left, level + 1))
-        if node.right:
-            queue.append((node.right, level + 1))
+    def bfs_with_depth_1(root):
+        queue = deque()
+        queue.append((root, 1))
+
+        ans = []
+        while queue:
+            node, depth = queue.popleft()
+            ans.append((node.val, depth))
+            if node.left:
+                queue.append((node.left, depth + 1))
+            if node.right:
+                queue.append((node.right, depth + 1))
+        return ans
+
+    def bfs_with_depth_2(root):
+        queue = deque()
+        queue.append(root)
+
+        ans = []
+        depth = 1
+        while queue:
+            for _ in range(len(queue)):
+                node = queue.popleft()
+                ans.append((node.val, depth))
+                if node.left:
+                    queue.append((node.left))
+                if node.right:
+                    queue.append((node.right))
+            depth += 1
+        return ans
     
-    print(ans) # [(4, 1), (2, 2), (6, 2), (1, 3), (3, 3), (5, 3), (7, 3)]
+    print(bfs_with_depth_1(root)) # [(4, 1), (2, 2), (6, 2), (1, 3), (3, 3), (5, 3), (7, 3)]
+    print(bfs_with_depth_2(root)) # [(4, 1), (2, 2), (6, 2), (1, 3), (3, 3), (5, 3), (7, 3)]
 
 print("===== DFS Recursion =====")
 DFS_recursion(root)
@@ -179,4 +209,4 @@ BFS_iteration(root)
 print("")
 
 print("===== BFS Iteration with Level (By Queue) =====")
-BFS_iteration_with_level(root)
+BFS_iteration_with_depth(root)
