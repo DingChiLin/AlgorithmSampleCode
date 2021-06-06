@@ -3,50 +3,66 @@
 from typing import List
 
 class Solution:
-    def combine(self, n: int, k: int) -> List[List[int]]:
-        ans = []
+    def __init__(self):
+        self.ans = []
 
-        def helper(index, length, comb):
-            # already have k elements in this combination
-            if length == k:
-                ans.append(comb[:])
-                return
+    def find(self, start, nums, max_length, comb):
+        if len(comb) + (len(nums) - start) < max_length:
+            return
 
-            # index should be 1 ~ n
-            if (index > n):
-                return
+        if len(comb) == max_length:
+            self.ans.append(comb[:])
+            return
 
-            # use this index
-            comb.append(index)
-            helper(index + 1, length + 1, comb)
+        for i in range(start, len(nums)):
+            comb.append(nums[i])
+            self.find(i + 1, nums, max_length, comb)
             comb.pop()
 
-            # not use this index
-            helper(index + 1, length, comb)
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        self.ans = []
+        self.find(0, [i + 1 for i in range(n)], k, [])
+        return self.ans
 
-        helper(1, 0, [])
-        return ans
+class Solution2:
+    def __init__(self):
+        self.ans = []
 
-    def combine2(self, n: int, k: int) -> List[List[int]]:
-        ans = []
+    def find(self, start, nums, max_length, comb):
+        if len(comb) + (len(nums) - start) < max_length:
+            return
 
-        def helper(start_index, length, comb):
-            # already have k elements in this combination
-            if length == k:
-                ans.append(comb[:])
-                return
+        # already have k elements in this combination
+        if len(comb) == max_length:
+            self.ans.append(comb[:])
+            return
 
-            for i in range(start_index, n+1):
-                comb.append(i)
-                helper(i + 1, length + 1, comb)
-                comb.pop()
+        if (start >= len(nums)):
+            return
 
-        helper(1, 0, [])
-        return ans
+        # use this value
+        comb.append(nums[start])
+        self.find(start + 1, nums, max_length, comb)
+        comb.pop()
+
+        # don't use this value
+        self.find(start + 1, nums, max_length, comb)
+
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        self.ans = []
+        self.find(0, [i + 1 for i in range(n)], k, [])
+        return self.ans
 
 
-s = Solution()
-n = 4
-k = 3
-print(s.combine(n, k))
-print(s.combine2(n, k))
+
+s1 = Solution()
+s2 = Solution2()
+n = 23
+k = 19
+import time
+start = time.time()
+s1.combine(n, k)
+cur = time.time()
+print(cur - start)
+s2.combine(n, k)
+print(time.time() - cur)
