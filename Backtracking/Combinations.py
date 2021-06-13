@@ -57,12 +57,7 @@ class Solution2:
 
 s1 = Solution()
 s2 = Solution2()
-n = 23
-k = 19
-import time
-start = time.time()
-s1.combine(n, k)
-cur = time.time()
-print(cur - start)
-s2.combine(n, k)
-print(time.time() - cur)
+n = 4
+k = 3
+print(s1.combine(n, k))
+# s2.combine(n, k)

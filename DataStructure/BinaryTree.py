@@ -60,7 +60,7 @@ def DFS_recursion(root):
 
 def DFS_iteration(root):
     def pre_order(root):
-        if root is None:
+        if not root:
             return
         
         ans = []
@@ -75,14 +75,14 @@ def DFS_iteration(root):
         return ans
 
     def in_order(root):
-        if root is None:
-            retur
+        if not root:
+            return
 
         ans = []
         current = root
         stack = []
         while True:
-            if current is not None:
+            if current:
                 stack.append(current)
                 current = current.left
             elif(stack):
