@@ -10,9 +10,8 @@ class Solution:
         for k in range(N):
             for i in range(N):
                 for j in range(N):
-                    if dst[i][j] > dst[i][k] + dst[k][j]:
-                        dst[i][j] = dst[i][k] + dst[k][j]
-        
+                    dst[i][j] = min(dst[i][j], dst[i][k] + dst[k][j])
+ 
         return dst
 
 
