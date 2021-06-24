@@ -2,13 +2,13 @@
 Basic
 '''
 
-# def backtracking(n):
-#     if n > 3:
-#         return
+def backtracking(n):
+    if n > 3:
+        return
 
-#     print(n)
-#     backtracking(n+1)
-#     print(n)
+    print(n)
+    backtracking(n+1)
+    print(n)
 
 # backtracking(1)
 
@@ -49,15 +49,15 @@ Digital Lock
 
 # backtracking_digit_lock_2(0, [])
 
-def backtracking_digit_lock_3(n, nums):
-    if n >= 3:
-        print(nums)
-        return
+# def backtracking_digit_lock_3(n, nums):
+#     if n >= 3:
+#         print(nums)
+#         return
 
-    for i in range(1, 4): # 1, 2, 3
-        nums.append(i)
-        backtracking_digit_lock_3(n + 1, nums)
-        nums.pop()
+#     for i in range(1, 4): # 1, 2, 3
+#         nums.append(i)
+#         backtracking_digit_lock_3(n + 1, nums)
+#         nums.pop()
 
 # backtracking_digit_lock_3(0, [])
 
@@ -65,26 +65,26 @@ def backtracking_digit_lock_3(n, nums):
 Combination
 '''
 
-def backtracking_combination_1(n, start, nums):
-    if n >= 2:
-        print(nums)
-        return
+# def backtracking_combination_1(n, start, nums):
+#     if n >= 2:
+#         print(nums)
+#         return
 
-    for i in range(start, 4): # 1, 2
-        nums.append(i)
-        backtracking_combination_1(n + 1, i + 1, nums)
-        nums.pop()
+#     for i in range(start, 4): # 1, 2
+#         nums.append(i)
+#         backtracking_combination_1(n + 1, i + 1, nums)
+#         nums.pop()
 
-backtracking_combination_1(0, 1, [])
+# backtracking_combination_1(0, 1, [])
 
-def backtracking_combination_2(n, start, nums):
-    if n >= 3:
-        print(nums)
-        return
+# def backtracking_combination_2(n, start, nums):
+#     if n >= 3:
+#         print(nums)
+#         return
 
-    for i in range(start, 5): # 1, 2
-        nums.append(i)
-        backtracking_combination_2(n + 1, i + 1, nums)
-        nums.pop()
+#     for i in range(start, 5): # 1, 2
+#         nums.append(i)
+#         backtracking_combination_2(n + 1, i + 1, nums)
+#         nums.pop()
 
-backtracking_combination_2(0, 1, [])
+# backtracking_combination_2(0, 1, [])

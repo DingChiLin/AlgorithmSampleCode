@@ -10,7 +10,7 @@ class Solution:
         if target == 0: # find an valid combination
             self.ans.append(comb[:])
 
-        if target <= 0: # pruning
+        if target < 0: # pruning
             return
 
         for i in range(start, len(nums)):
