@@ -7,12 +7,13 @@ class Solution:
         ans = []
 
         def helper(start_index, total, comb):
+            if (comb[start_index] > balls[start_index]):
+                return
+
             if total == k:
                 ans.append(comb[:])
             
-            for i in range(start_index, len(balls)):
-                if (comb[i]+1 > balls[i]):
-                    continue
+            for i in range(start_index, len(balls)): 
                 comb[i] += 1
                 helper(i, total + 1, comb)
                 comb[i] -= 1
