@@ -6,11 +6,11 @@ class Solution:
     
     def helper(self, graph, node, target, path):
         if (node == target):
-            self.ans.append(path)
+            self.ans.append(path[:])
             return
         for n in graph[node]:
             path.append(n)
-            self.helper(graph, n, target, path[:])
+            self.helper(graph, n, target, path)
             path.pop()
     
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
