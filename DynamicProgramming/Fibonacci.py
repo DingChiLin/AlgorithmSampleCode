@@ -1,3 +1,4 @@
+# Top-Down
 class Solution:
     def __init__(self):
         self.dp = {}
@@ -12,6 +13,7 @@ class Solution:
         self.dp[x] = self.fibonacci(x-1) + self.fibonacci(x-2)
         return self.dp[x]
 
+# Bottom-Up
 class Solution2:
     def fibonacci(self, x):
         dp = [0 for i in range(x+1)]
