@@ -56,6 +56,19 @@ class BSTree:
     def delete(self, val):
         self.root = self._delete(self.root, val)
 
+    def _exist(self, node, val):
+        if not node:
+            return False
+        if val == node.val:
+            return True
+        elif val > node.val:
+            return self._exist(node.right, val)
+        else:
+            return self._exist(node.left, val)
+
+    def exist(self, val):
+        return self._exist(self.root, val)
+
     # in order traversal
     def _print(self, node):
         if (not node):
@@ -78,17 +91,23 @@ tree.insert(3)
 tree.insert(5)
 tree.insert(7)
 tree.print()
+print(tree.exist(1))
+print(tree.exist(4))
+print(tree.exist(8))
 
 print("=== delete test ===")
 tree.delete(1)
 tree.delete(6)
 tree.delete(4)
 tree.print()
+print(tree.exist(1))
+print(tree.exist(4))
+print(tree.exist(8))
 
 print("=== random test ====")
-import random
-for i in range(1, 100):
-    tree.insert(random.randint(1,100))
-for i in range(1, 200):
-    tree.delete(random.randint(1,100))
-tree.print()
+# import random
+# for i in range(1, 100):
+#     tree.insert(random.randint(1,100))
+# for i in range(1, 200):
+#     tree.delete(random.randint(1,100))
+# tree.print()
