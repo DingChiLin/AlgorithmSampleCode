@@ -14,4 +14,4 @@ class Solution:
             ans += records[preSum[i] - k]
             records[preSum[i]] += 1
 
-        return None
+        return ans

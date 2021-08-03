@@ -5,6 +5,6 @@ class Solution:
         records = set()
         for n in nums:
             if n in records:
-                return False
+                return True
             records.add(n)
-        return True
+        return False
