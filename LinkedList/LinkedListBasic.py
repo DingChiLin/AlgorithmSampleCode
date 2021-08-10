@@ -1,3 +1,10 @@
+'''
+最基礎初學者要會的部分：
+1. Single Linked List
+2. 給予 self.head 一個空的 Node
+3. 記錄 length
+'''
+
 class ListNode:
 	def __init__(self, val = None):
 		self.val = val
@@ -5,24 +12,24 @@ class ListNode:
 
 class LinkedList:
 	def __init__(self):
-		self.head = None
+		self.head = ListNode()
+		self.length = 0
 
-	def add(self, value):
+	def add(self, value): # add at head
 		node = ListNode(value)
-		if (not self.head):
-			self.head = node
-		else:
-			node.next = self.head
-			self.head = node
+		node.next = self.head.next
+		self.head.next = node
+		self.length += 1
 
-	def remove(self):
-		if (not self.head):
-			print("list is empty")
+	def remove(self): # remove at head
+		if self.head.next:
+			self.head.next = self.head.next.next
+			self.length -= 1
 		else:
-			self.head = self.head.next
+			print("list is empty")
 
 	def print(self):
-		cur = self.head
+		cur = self.head.next
 		while(cur != None):
 			print(cur.val)
 			cur = cur.next
@@ -39,5 +46,5 @@ linked_list.remove()
 linked_list.print() # 1
 linked_list.remove()
 linked_list.print() # (empty)
-linked_list.remove() # list is empty (do nothing)
+linked_list.remove() # list is empty
 
