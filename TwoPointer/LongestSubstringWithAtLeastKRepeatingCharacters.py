@@ -26,9 +26,3 @@ class Solution:
             ans = max(ans, self.longestSubstringWithMUniqCharacters(s, k, m))
 
         return ans
-
-
-s = Solution()
-ss = "ababbc"
-k = 2
-print(s.longestSubstring(ss, k))
