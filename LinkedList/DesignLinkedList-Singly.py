@@ -13,7 +13,7 @@ class MyLinkedList:
         self.length = 0
 
     def get(self, index: int) -> int:
-        if index >= self.length:
+        if index < 0 or index >= self.length:
             return -1
         cur = self.head.next
         for _ in range(index):
@@ -27,7 +27,7 @@ class MyLinkedList:
         self.addAtIndex(self.length, val)
 
     def addAtIndex(self, index: int, val: int) -> None:
-        if index > self.length:
+        if index < 0 or index > self.length:
             return None
 
         cur = self.head
@@ -40,7 +40,7 @@ class MyLinkedList:
         self.length += 1
 
     def deleteAtIndex(self, index: int) -> None:
-        if index >= self.length:
+        if index < 0 or index >= self.length:
             return None
 
         cur = self.head
