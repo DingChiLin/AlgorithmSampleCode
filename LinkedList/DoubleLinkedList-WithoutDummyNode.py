@@ -1,3 +1,10 @@
+'''
+完整的 Double Linked List（標準的寫法）
+1. 省掉 head 與 tail 的空 node
+2. 不記錄 length
+3. 增加 key 的概念
+'''
+
 class ListNode:
 	def __init__(self, key = None, val = None):
 		self.key = key

@@ -1,19 +1,13 @@
 from typing import List
 
 class Solution:
-    def __init__(self):
-        self.moves = [[1, 0], [0, 1], [-1, 0], [0, -1]]
-
-    def valid(self, x, y, N, M):
-        return (0 <= x < N and 0 <= y < M)
-
     def dfs(self, x, y, N, M, grid):
         grid[x][y] = "0"
     
-        for (dx, dy) in self.moves:
+        for dx, dy in [[1, 0], [0, 1], [-1, 0], [0, -1]]:
             nx = x + dx
             ny = y + dy
-            if self.valid(nx, ny, N, M) and grid[nx][ny] == "1":
+            if 0 <= x < N and 0 <= y < M and grid[nx][ny] == "1":
                 self.dfs(nx, ny, N, M, grid)
         
     def numIslands(self, grid: List[List[str]]) -> int:

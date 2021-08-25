@@ -10,12 +10,12 @@ class Solution:
         if target == 0: # find an valid combination
             self.ans.append(comb[:])
 
-        if target <= 0: # pruning
+        if target < 0: # pruning
             return
 
         for i in range(start, len(nums)):
             comb.append(nums[i])
-            self.find(i, nums,  target - nums[i], comb)
+            self.find(i, nums, target - nums[i], comb)
             comb.pop()
 
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:

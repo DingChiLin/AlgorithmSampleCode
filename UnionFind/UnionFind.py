@@ -1,23 +1,23 @@
 class UnionFind:
     def __init__(self, N):
-        self.nodes = [i for i in range(N)]
+        self.father = [i for i in range(N)]
         self.rank = [1 for i in range(N)]       
 
     def root(self, n):
-        if n != self.nodes[n]:
-            self.nodes[n] = self.root(self.nodes[n])
-        return self.nodes[n]
+        if n != self.father[n]:
+            self.father[n] = self.root(self.father[n])
+        return self.father[n]
 
     def union(self, n1, n2):
         r1 = self.root(n1)
         r2 = self.root(n2)
         if r1 != r2:
             if self.rank[r1] < self.rank[r2]:
-                self.nodes[r1] = r2
+                self.father[r1] = r2
             elif self.rank[r1] > self.rank[r2]:
-                self.nodes[r2] = r1
+                self.father[r2] = r1
             else:
-                self.nodes[r2] = r1
+                self.father[r2] = r1
                 self.rank[r1] += 1
             return True
         return False
