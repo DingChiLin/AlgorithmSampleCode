@@ -1,22 +1,22 @@
-def backtracking(n):
-    if n > 3:
-        return
+# def backtracking(n):
+#     if n > 3:
+#         return
 
-    print(n)
-    backtracking(n+1)
-    print(n)
+#     print(n)
+#     backtracking(n+1)
+#     print(n)
 
-backtracking(1)
+# backtracking(1)
 
-def backtracking_1(n, nums):
-    print(nums)
-    if n >= 2:
-        return
+# def backtracking_1(n, nums):
+#     print(nums)
+#     if n >= 2:
+#         return
 
-    new_nums = nums + [1]
-    backtracking_1(n+1, new_nums)
+#     new_nums = nums + [1]
+#     backtracking_1(n+1, new_nums)
 
-backtracking_1(0, [])
+# backtracking_1(0, [])
 
 def backtracking_2(n, nums):
     print(nums)
@@ -29,17 +29,17 @@ def backtracking_2(n, nums):
 
 backtracking_2(0, [])
 
-def backtracking_2_b(n, nums):
-    print(nums)
-    if n >= 2:
-        return
+# def backtracking_2_b(n, nums):
+#     print(nums)
+#     if n >= 2:
+#         return
 
-    for i in range(1, 3): # 1, 2
-        nums.append(i)
-        backtracking_2_b(n + 1, nums)
-        nums.pop()
+#     for i in range(1, 3): # 1, 2
+#         nums.append(i)
+#         backtracking_2_b(n + 1, nums)
+#         nums.pop()
 
-backtracking_2_b(0, [])
+# backtracking_2_b(0, [])
 
 # def backtracking_3(n, nums):
 #     print(nums)
