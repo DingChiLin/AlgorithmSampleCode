@@ -10,7 +10,7 @@ class Solution:
         dp[0] = 0
         for i in range(amount + 1):
             for n in coins:
-                if i >=n:
+                if i >= n:
                     dp[i] = min(dp[i], dp[i-n] + 1)
         return dp[amount] if dp[amount] < math.inf else -1
 

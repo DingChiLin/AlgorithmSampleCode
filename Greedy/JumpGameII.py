@@ -26,9 +26,6 @@ class Solution2:
             stk.append((i, stk[-1][1] + 1))
         return stk[-1][1]
 
-
-
-
 s = Solution()
 nums = [2,3,1,1,4]
 # nums = [2,3,0,1,4]

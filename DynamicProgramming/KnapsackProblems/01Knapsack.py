@@ -1,3 +1,4 @@
+# 2D Array
 class Solution:
     def findMaxValue(self, capacity, items):
         N = len(items)
@@ -11,6 +12,20 @@ class Solution:
                     dp[i][j] = dp[i-1][j]
 
         return dp[N][capacity]
+
+# 1D Array
+class Solution:
+    def findMaxValue(self, capacity, items):
+        N = len(items)
+        dp = [0 for j in range(capacity + 1)]
+        for i in range(1, N + 1):
+            for j in range(capacity, 0, -1):
+                weight, value = items[i-1]
+                if (j - weight >= 0):
+                    dp[j] = max(value + dp[j - weight], dp[j])
+                else:
+                    dp[j] = dp[j]
+        return dp[capacity]
 
 capacity = 7
 items = [[4, 9], [5, 15], [3, 8]] #[w, v]
