@@ -6,9 +6,9 @@ def backtracking(n):
     if n > 3:
         return
 
-    print(n)
-    backtracking(n+1)
-    print(n)
+#     print(n)
+#     backtracking(n+1)
+#     print(n)
 
 # backtracking(1)
 
@@ -35,19 +35,17 @@ Digital Lock
 #         new_nums = nums + [i]
 #         backtracking_digit_lock(n + 1, new_nums)
 
-# backtracking_digit_lock(0, [])
-
-# def backtracking_digit_lock_2(n, nums):
+# def backtracking_2_b(n, nums):
+#     print(nums)
 #     if n >= 2:
-#         print(nums)
 #         return
 
 #     for i in range(1, 3): # 1, 2
 #         nums.append(i)
-#         backtracking_digit_lock_2(n + 1, nums)
+#         backtracking_2_b(n + 1, nums)
 #         nums.pop()
 
-# backtracking_digit_lock_2(0, [])
+# backtracking_2_b(0, [])
 
 # def backtracking_digit_lock_3(n, nums):
 #     if n >= 3:
