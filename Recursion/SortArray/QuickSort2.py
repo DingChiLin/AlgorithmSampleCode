@@ -1,6 +1,6 @@
 # [Leetcode 912](https://leetcode.com/problems/sort-an-array/)
 
-# 用 3-way partition 處理數字一樣的問題
+# 3-way partition
 import random
 class Solution:
     def three_way_partition(self, nums, left_index, right_index):
