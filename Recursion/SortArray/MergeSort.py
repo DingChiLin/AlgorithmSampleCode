@@ -22,15 +22,15 @@ class Solution:
 
         return tmp
 
-    def merge_sort(self, nums):
+    def sortArray(self, nums):
         if len(nums) <= 1:
             return nums
 
         mid = len(nums) // 2
-        left = self.merge_sort(nums[:mid])
-        right = self.merge_sort(nums[mid:])
+        left = self.sortArray(nums[:mid])
+        right = self.sortArray(nums[mid:])
         return self.merge(left, right)
 
 s = Solution()
 nums = [1,8,4,7,5,3,6,2]
-print(s.merge_sort(nums))
+print(s.sortArray(nums))
