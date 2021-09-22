@@ -37,8 +37,25 @@ class Solution:
                 hasZero = 1
         return (endWithOne + endWithZero + hasZero) % MOD
 
+# Do it reversely
+class Solution:
+    def numberOfUniqueGoodSubsequences(self, binary: str) -> int:
+        N = len(binary)
+        dp = [0] * (N+1)
+        lastZero = N
+        lastOne = N
+        for i in range(N-1, -1, -1):
+            dp[i] += 1
+            dp[i] = (dp[i] + dp[lastZero]) % MOD
+            dp[i] = (dp[i] + dp[lastOne]) % MOD
+            if binary[i] == '0':
+                lastZero = i
+            else:
+                lastOne = i
+        return (dp[lastOne] + (1 if lastZero != N else 0)) % MOD
+
 s = Solution()
 ss = "101"
 ss = "00"
-# ss = "11"
+ss = "100110"
 print(s.numberOfUniqueGoodSubsequences(ss))

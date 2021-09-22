@@ -22,16 +22,18 @@ class Codec:
         return ",".join(res)
 
     def deserialize(self, data):
-        vals = deque(data.split(','))
+        vals = data.split(',')
+        self.index = 0
         def dfs():
-            val = vals.popleft()
-            node = None
+            val = vals[self.index]
+            self.index += 1
             if val != '*':
                 node = TreeNode(int(val))
                 node.left = dfs()
                 node.right = dfs()
-            return node
-
+                return node
+            else:
+                return None
         return dfs()
 
 # Your Codec object will be instantiated and called as such:
