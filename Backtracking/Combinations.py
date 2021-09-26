@@ -7,9 +7,11 @@ class Solution:
         self.ans = []
 
     def find(self, start, nums, max_length, comb):
+        # pruning impossible branches to achieve better performance
         if len(comb) + (len(nums) - start) < max_length:
             return
 
+        # already have k elements in this combination
         if len(comb) == max_length:
             self.ans.append(comb[:])
             return
