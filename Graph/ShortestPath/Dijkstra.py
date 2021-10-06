@@ -7,7 +7,7 @@ class Solution:
         dst = [inf for i in range(N)]
         dst[start] = 0
 
-        while len(pq):
+        while pq:
             d, n = heapq.heappop(pq)
             if d != dst[n]:
                 continue
@@ -23,17 +23,14 @@ class Solution2:
     def dijkstra(self, start, N, edges):
         pq = [(0, start)]
         dst = [inf for i in range(N)]
-        visited = [False for i in range(N)]
 
-        while len(pq):
+        while pq:
             d, n = heapq.heappop(pq)
-            if visited[n]:
+            if d >= dst[n]:
                 continue
-            visited[n] = True
-            dst[n] = d # first time popped out
-
+            dst[n] = d 
             for nn, nd in edges[n]:
-                if not visited[nn]:
+                if d + nd < dst[nn]:
                     heapq.heappush(pq, (d + nd, nn))
 
         return dst
