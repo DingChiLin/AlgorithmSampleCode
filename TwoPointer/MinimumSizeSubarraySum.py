@@ -14,7 +14,7 @@ class Solution:
                 i += 1
             if tot >= target:
                 ans = min(ans, (j - i + 1))
-        return ans
+        return ans if ans != inf else 0
 
 s = Solution()
 target = 7
