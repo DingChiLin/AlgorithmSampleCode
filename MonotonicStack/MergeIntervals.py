@@ -1,6 +1,6 @@
 from typing import List
 
-# order by right bar
+# order by right bar (similar to monotonic stack template)
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         intervals.sort(key = lambda x: x[1])
