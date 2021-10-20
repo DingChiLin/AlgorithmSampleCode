@@ -18,8 +18,9 @@ class Solution:
 
             while que and psum[i] < psum[que[-1]]:
                 que.pop()
-            
+
             que.append(i)
+
         return ans if ans != inf else -1
 
 
