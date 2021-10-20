@@ -5,7 +5,7 @@ class Solution:
         stk = []
         ans = 0
         for i in range(len(height)):
-            while(len(stk) > 0 and height[i] > height[stk[-1]]):
+            while stk and height[i] > height[stk[-1]]:
                 if (len(stk) > 1):
                     w = i - stk[-2] - 1
                     h = min(height[i], height[stk[-2]]) - height[stk[-1]]

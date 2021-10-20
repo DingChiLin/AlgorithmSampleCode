@@ -3,15 +3,17 @@ from typing import List
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
         N = len(prices)
-        ans = [0 for i in range(N)]
-        stack = []
+        discount = [0] * N
+        stk = []
         for i in range(N):
-            while stack and prices[i] <= prices[stack[-1]]:
-                poped_index = stack.pop()
-                ans[poped_index] = prices[poped_index] - prices[i]
-            stack.append(i)
-        for i in stack:
-            ans[i] = prices[i]
+            while stk and prices[i] <= prices[stk[-1]]:
+                poped_index = stk.pop()
+                discount[poped_index] = prices[i]
+            stk.append(i)
+
+        ans = [0] * N
+        for i in range(N):
+            ans[i] = prices[i] - discount[i]
         return ans
 
 s = Solution()

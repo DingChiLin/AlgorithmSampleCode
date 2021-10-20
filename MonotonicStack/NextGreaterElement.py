@@ -1,6 +1,6 @@
 # Monotonic Stack 原型
-
 from typing import List
+
 class Solution:
     def nextGreaterElement(self, nums):
         N = len(nums)
@@ -16,4 +16,4 @@ class Solution:
 
 s = Solution()
 nums = [3, 5, 4, 6, 3, 4]
-print(s.nextGreaterElement(nums))
+print(s.nextGreaterElement(nums)) # [5, 6, 6, -1, 4, -1]

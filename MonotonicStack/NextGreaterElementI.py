@@ -10,7 +10,7 @@ class Solution:
                 mapping[nums2[stk[-1]]] = nums2[i]
                 stk.pop()
             stk.append(i)
-            
+
         ans = []
         for n in nums1:
             if (n in mapping):
