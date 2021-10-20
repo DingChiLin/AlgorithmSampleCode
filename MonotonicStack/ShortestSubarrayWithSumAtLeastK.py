@@ -8,8 +8,7 @@ class Solution:
         psum = [0] * (N + 1)
         for i in range(N):
             psum[i+1] = psum[i] + nums[i]
-        print(psum)
-        
+
         que = deque()
         ans = inf
         for i in range(N+1):
