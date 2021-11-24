@@ -6,9 +6,9 @@ def backtracking(n):
     if n > 3:
         return
 
-#     print(n)
-#     backtracking(n+1)
-#     print(n)
+    print(n)
+    backtracking(n+1)
+    print(n)
 
 # backtracking(1)
 
