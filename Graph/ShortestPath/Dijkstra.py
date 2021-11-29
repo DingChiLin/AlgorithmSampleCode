@@ -4,25 +4,25 @@ from math import inf
 class Solution:
     def dijkstra(self, start, N, edges):
         pq = [(0, start)]
-        dst = [inf for i in range(N)]
-        dst[start] = 0
+        dst = [inf for _ in range(N)]
+        visited = set()
 
         while pq:
             d, n = heapq.heappop(pq)
-            if d != dst[n]:
+            if n in visited:
                 continue
-            dst[n] = d
+            visited.add(n)
+            dst[n] = d 
             for nn, nd in edges[n]:
-                if d + nd < dst[nn]:
-                    dst[nn] = d + nd
-                    heapq.heappush(pq, (dst[nn], nn))
+                if nn not in visited:
+                    heapq.heappush(pq, (d + nd, nn))
 
         return dst
 
 class Solution2:
     def dijkstra(self, start, N, edges):
         pq = [(0, start)]
-        dst = [inf for i in range(N)]
+        dst = [inf for _ in range(N)]
 
         while pq:
             d, n = heapq.heappop(pq)
@@ -34,7 +34,6 @@ class Solution2:
                     heapq.heappush(pq, (d + nd, nn))
 
         return dst
-
 
 # direction: left -> right
 #        5    7
@@ -53,4 +52,4 @@ edges = [
     [[5,3]],
     []
 ]
-print(s.dijkstra(0, 6, edges))
+print(s.dijkstra(0, 6, edges)) # [0, 1, 3, 5, 6, 9]
