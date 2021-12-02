@@ -4,17 +4,17 @@ import heapq
 class Solution:
     def minRefuelStops(self, target: int, startFuel: int, stations: List[List[int]]) -> int:
         stations.append([target, 0])
-        position = startFuel
+        curr = startFuel
         count = 0
         pq = []
         for p, f in stations:
-            if position < p:
-                while pq and position < p:
-                    position += -heapq.heappop(pq)
+            if curr < p:
+                while pq and curr < p:
+                    curr += -heapq.heappop(pq)
                     count += 1
-                if position < p:
+                if curr < p:
                     return -1
-                if position >= target:
+                if curr >= target:
                     break
             heapq.heappush(pq, -f)
 
