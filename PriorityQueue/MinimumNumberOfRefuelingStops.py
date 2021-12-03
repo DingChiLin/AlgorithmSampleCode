@@ -12,10 +12,10 @@ class Solution:
                 while pq and curr < p:
                     curr += -heapq.heappop(pq)
                     count += 1
-                if curr < p:
-                    return -1
                 if curr >= target:
                     break
+                if curr < p:
+                    return -1
             heapq.heappush(pq, -f)
 
         return count
