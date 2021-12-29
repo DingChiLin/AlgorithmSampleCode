@@ -6,18 +6,18 @@ from collections import defaultdict
 class Solution:
     def dijkstra(self, start, N, edges):
         pq = [(0, start)]
-        dst = [inf for i in range(N)]
-        dst[start] = 0
+        dst = [inf for _ in range(N)]
+        visited = set()
 
-        while len(pq):
+        while pq:
             d, n = heapq.heappop(pq)
-            if d != dst[n]:
+            if n in visited:
                 continue
-            dst[n] = d
+            visited.add(n)
+            dst[n] = d 
             for nn, nd in edges[n]:
-                if d + nd < dst[nn]:
-                    dst[nn] = d + nd
-                    heapq.heappush(pq, (dst[nn], nn))
+                if nn not in visited:
+                    heapq.heappush(pq, (d + nd, nn))
 
         return dst
 
@@ -26,7 +26,7 @@ class Solution:
         for u, v, w in times:
             edges[u].append((v,w))
 
-        dst = self.dijkstra(k, n, edges)
+        dst = self.dijkstra(k, n+1, edges)
 
         result = max(dst[1:])    
         return -1 if result == inf else result
