@@ -13,7 +13,7 @@ class Solution:
                 else:
                     R += 1
         FL2 = (F + R - L)
-        if (FL2 & 1): 
+        if (FL2 & 1) or (FL2 < 0): 
             # It's impossible make the total count of '(' and ')' balanced by using free positions
             return False
 
