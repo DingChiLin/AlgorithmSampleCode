@@ -1,4 +1,4 @@
-#Basic
+# Basic
 class Solution:
     def countVowelPermutation(self, n: int) -> int:
         DP = [[0 for _ in range(5)] for _ in range(n)]
