@@ -12,7 +12,7 @@ class Solution:
         maxProfit = 0
         for i in range(1, N + 1):
             dp[0][i] = max(dp[0][i-1], -prices[i-1])
-            dp[1][i] = max(dp[0][i-1] + prices[i-1], dp[1][i-1])
+            dp[1][i] = max(dp[1][i-1], dp[0][i-1] + prices[i-1])
             maxProfit = max(maxProfit, dp[1][i])
         return maxProfit
 
@@ -28,7 +28,7 @@ class Solution2:
         maxProfit = 0
         for i in range(1, N + 1):
             buy[i] = max(buy[i-1], -prices[i-1])
-            sell[i] = max(buy[i-1] + prices[i-1], sell[i-1])
+            sell[i] = max(sell[i-1], buy[i-1] + prices[i-1])
             maxProfit = max(maxProfit, sell[i])
         return maxProfit
 
@@ -39,7 +39,7 @@ class Solution3:
         sell = 0
         maxProfit = 0
         for price in prices:
-            buy, sell = max(buy, -price), max(buy + price, sell)
+            buy, sell = max(buy, -price), max(sell, buy + price)
             maxProfit = max(maxProfit, sell)
         return maxProfit
 

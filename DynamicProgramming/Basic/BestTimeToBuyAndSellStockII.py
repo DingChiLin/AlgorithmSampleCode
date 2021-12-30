@@ -11,7 +11,7 @@ class Solution:
         sell[0] = 0
         for i in range(1, N + 1):
             buy[i] = max(buy[i-1], sell[i-1] - prices[i-1])
-            sell[i] = max(buy[i-1] + prices[i-1], sell[i-1])
+            sell[i] = max(sell[i-1], buy[i-1] + prices[i-1])
 
         return sell[-1]
 
