@@ -21,7 +21,7 @@ class Solution:
                 buy[0] = -inf
                 sell[0] = 0
                 for i in range(1, k+1):
-                    buy[i] = max(sell[i-1] - p, buy[i])
+                    buy[i] = max(buy[i], sell[i-1] - p)
                     sell[i] = max(sell[i], buy[i] + p)
             return sell[-1]
 
