@@ -13,7 +13,7 @@ class Solution:
             buy[i] = max(buy[i-1], sell[i-1] - prices[i-1])
             sell[i] = max(sell[i-1], buy[i-1] + prices[i-1])
 
-        return sell[-1]
+        return max(buy[-1], sell[-1])
 
 s = Solution()
 prices = [7,1,5,3,6,4]
