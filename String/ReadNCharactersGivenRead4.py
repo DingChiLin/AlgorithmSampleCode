@@ -1,3 +1,6 @@
+def read4(n):
+    pass # given by API
+
 class Solution:
     def read(self, buf, n):
         copied_chars = 0

@@ -1,5 +1,8 @@
 from typing import List
 
+def read4(n):
+    pass # given by API
+
 class Solution:
     def __init__(self):
         self.buf4 = [""] * 4
