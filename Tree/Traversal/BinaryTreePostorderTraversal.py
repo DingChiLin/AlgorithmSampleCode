@@ -18,8 +18,24 @@ class Solution:
         dfs(root)
         return ans
 
-# Stack
+# Stack (general: trick of inverse inorder traversal)
 class Solution2:
+    def postorderTraversal(self, root: TreeNode) -> List[int]:
+        ans = []
+        stk = []
+        curr = root
+        while stk or curr:
+            if curr:
+                stk.append(curr)
+                ans.append(curr.val)
+                curr = curr.right
+            else:
+                node = stk.pop()
+                curr = node.left
+        return ans[::-1]
+
+# Stack (formal)
+class Solution3:
     def postorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
             return
@@ -41,3 +57,14 @@ class Solution2:
                     node = stack.pop()
                 ans.append(node.val)
         return ans
+
+root = TreeNode(1) 
+root.left = TreeNode(2) 
+root.right = TreeNode(3) 
+root.left.left = TreeNode(4) 
+root.left.right = TreeNode(5) 
+root.right.left = TreeNode(6)
+root.right.right = TreeNode(7)
+
+S = Solution2()
+print(S.postorderTraversal(root))
