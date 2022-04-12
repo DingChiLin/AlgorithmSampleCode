@@ -83,3 +83,25 @@ class Trie:
                 for _, n in node.links.items():
                     stack.append(n)
         return (word, max_number)
+
+T = Trie()
+T.insert('abc')
+T.insert('abc')
+T.insert('abd')
+T.insert('abcd')
+print(T.root.links['a'].links['b'].cnt) # 2
+print(T.root.links['a'].links['b'].word) # empty
+print(T.root.links['a'].links['b'].links['c'].word) # abc
+print(T.root.links['a'].links['b'].links['c'].links['d'].word) # abcd
+
+print(T.search('ab')) # False
+print(T.search('abc')) # True
+print(T.search('abcd')) # True
+
+print(T.startsWith('ab')) # True
+print(T.startsWith('abc')) # True
+print(T.startsWith('abcd')) # True
+
+print(T.find_all()) # [('abd', 1), ('abc', 2), ('abcd', 1)]
+
+print(T.find_max()) # ('abc', 2)
