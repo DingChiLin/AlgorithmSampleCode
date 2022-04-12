@@ -24,7 +24,7 @@ class Solution:
         self.find(0, len(balls), balls, k, [])
         return self.ans
 
-# Add balls one by one
+# Add s one by one
 class Solution2:
     def colorBallsCombination(self, balls: List[int], k: int) -> List[List[int]]:
         ans = []
