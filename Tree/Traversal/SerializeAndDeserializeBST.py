@@ -10,8 +10,11 @@ class TreeNode:
 
 class Codec:
     def int2str(self, x):
-        res = [chr(x >> (i * 8) & 0xff) for i in range(4)]
-        return ''.join(res[::-1])
+        code = ""
+        for _ in range(4):
+            code += chr(x & 255) # 255 = 0xff
+            x >>= 8
+        return code[::-1]
 
     def str2int(self, s):
         result = 0
