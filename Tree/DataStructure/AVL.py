@@ -3,7 +3,7 @@ class AVLTreeNode:
         self.val = val
         self.left = None
         self.right = None
-        self.height = 0
+        self.height = 1
 
 #  not allow duplicated value
 class AVLTree:
@@ -33,7 +33,7 @@ class AVLTree:
         return self._get_height(node.left) - self._get_height(node.right)
 
     def _get_height(self, node):
-        return node.height if node else -1
+        return node.height if node else 0
 
     def _balance(self, node):
         bf = self._get_balance_factor(node)

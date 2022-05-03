@@ -15,6 +15,8 @@ class MST:
         weight = 0
         while len(visited) < N:
             w, u, v = heapq.heappop(pq)
+            if v in visited:
+                continue
             visited.add(v)
             tree.append([u, v])
             weight += w
