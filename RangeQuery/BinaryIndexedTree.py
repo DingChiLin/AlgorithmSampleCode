@@ -50,7 +50,7 @@ class BinaryIndexedTree():
             ans += self.bit[index]
             index -= (index & -index)
         return ans
-    
+ 
     def query(self, left, right):
         return self.prefixSum(right) - self.prefixSum(left-1) if left > 0 else self.prefixSum(right)
 
