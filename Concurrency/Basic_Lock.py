@@ -2,7 +2,7 @@ import threading
 import time
  
 num = 0
-mutex = threading.RLock()
+mutex = threading.Lock()
 
 def func(st):
     global num
@@ -26,9 +26,9 @@ def func2(st):
         time.sleep(st)
         print (threading.currentThread().getName(), "release the lock.")       
  
-t1 = threading.Thread(target=func, args=(8,))
-t2 = threading.Thread(target=func, args=(4,))
-t3 = threading.Thread(target=func, args=(2,))
+t1 = threading.Thread(target=func2, args=(8,))
+t2 = threading.Thread(target=func2, args=(4,))
+t3 = threading.Thread(target=func2, args=(2,))
 t1.start()
 t2.start()
 t3.start()
