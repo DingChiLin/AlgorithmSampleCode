@@ -1,6 +1,6 @@
-from math import sqrt, sin, cos, acos, atan2
+from math import sqrt, sin, cos, acos, atan2, pi
 
-PI = acos(-1)
+PI = pi
 EPS = 1e-12
 
 class Point:
@@ -34,6 +34,9 @@ class Point:
     
     def angle(self):
         return atan2(self.y, self.x)
+
+    def angle360(self):
+        return (atan2(self.y, self.x) * 180 / PI) % 360
 
     def includedAngle(self, b): # 夾角（保持正數）
         dot = self*b
