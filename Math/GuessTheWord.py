@@ -1,3 +1,6 @@
+from typing import List
+from math import inf
+
 class Solution:
     def matchCount(self, word1, word2):
         return len([i for i in range(len(word1)) if word1[i] == word2[i]])
