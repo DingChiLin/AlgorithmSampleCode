@@ -3,6 +3,26 @@ For range sum
 1. Build: O(N)
 2. Query: O(logN) 
 3. Insert/Update: O(logN)  # insert could be O(1), but will need to maintain a prefixSum array
+
+1 2 3 4 5 6 7 8
+
+_   _   _   _
+___     ___
+_______
+_______________
+
+
+1  0001
+2  0010
+3  0011
+4  0100
+5  0101
+6  0110
+7  0111
+8  1000
+
+x * -x: will get last significant bit
+
 '''
 
 class BinaryIndexedTree():
